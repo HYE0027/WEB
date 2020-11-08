@@ -10,7 +10,7 @@ playSequence();
 
 function playSequence() {
     var timer = setInterval(function() {
-        if (imgNum > 499) {
+        if (imgNum > 70) {
             imgNum = 1;
         }
         
