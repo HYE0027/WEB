@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-snap-type: y mandatory;
+}
+
+@media screen and (min-width:481px) {
+
+    #container {
+        height: 100%;
+        width: 1100px;
+        margin: 0 auto;
+    }
+    p{
+    text-align: center;
+    }
+    
+    .item {
+        height: 100%;
+        scroll-snap-align: start;
+    }
+    .main_text{
+        background: url(img/main_text.gif) no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        position: absolute;
+        z-index: 1000;
+    }
+    .main_text2{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .main_bg{
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .item:nth-of-type(1) {
+        background-color: bisque;
+    }
+
+    .item:nth-of-type(2) {
+        background-color: darksalmon;
+    }
+
+    .item:nth-of-type(3) {
+        background-color: darkkhaki;
+    }
+
+    .item:nth-of-type(4) {
+        background-color: chocolate;
+    }
+
+    .item:nth-of-type(5) {
+        background-color: coral;
+    }
+    
+}
+
+
+
+
+
+
+
