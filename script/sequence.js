@@ -4,23 +4,23 @@ var img = new Image();
 var canvas = document.getElementById('screen1');
 var ctx = canvas.getContext('2d');
 
-img.src = "./img/main_img/main (1).png";
+img.src = "./img/main_bg/main (1).gif";
 
 playSequence();
 
 function playSequence() {
     var timer = setInterval(function() {
-        if (imgNum > 750) {
-            imgNum = 0;
+        if (imgNum > 499) {
+            imgNum = 1;
         }
         
         player(imgNum);
         imgNum++;
-    }, 30);
+    }, 28);
 }
 
 function player(num) {
-    img.src = "./img/main_img/main (" + num + ").png";
+    img.src = "./img/main_bg/main (" + num + ").gif";
 }
 
 img.addEventListener('load' ,function(e) {
