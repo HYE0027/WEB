@@ -3,17 +3,118 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <title>mobe.</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="script/parallax.js"></script>
+        
+        <script>
+        
+         <!-- 앵커 스크롤링 제이쿼리 -->
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){            
+                    event.preventDefault(); $('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);
+            });
+     
+            $(window).scroll( function(){
+            $('.fadeinleft').each( function(i){
+            
+                var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                var top_of_window =  $(window).height(); - $(window).scrollTop()
+
+                if( bottom_of_window > bottom_of_element/1.025 ){
+                    $(this).animate({'opacity':'1','margin-bottom':'0px'},1000);
+                }
+            }); 
+            });
+        });
+    
+
+       <!-- 스크롤 --> 
+        var ovf, slider;
+        $(function(){
+            ovf = this.getElementById("overflow");
+            slider = this.getElementById("slider");
+            winResize();
+            $(window).bind({resize: winResize, scroll: winScroll});
+        });
+        function winResize(){
+            ovf.style.top = slider.offsetHeight + "px";
+        }
+
+        function winScroll(){
+            var op = 1 - (window.pageYOffset / slider.offsetHeight);
+            slider.style.opacity = op;
+        }
+
+<!-- 페이드 --> 
+
+    
+    </script>
+     
+        
     </head>
     
-    <body>
-        <body style="overflow-x:hidden">
-        <section class="item" class="main_text2">   
-            <div class="main_text"></div>
-            <img src="img/main_text.gif" class="main_text2">
-            <canvas width="1920" height="1080" id="screen1" class="main_bg"></canvas>
+    <body style="overflow-x:hidden" class="contain">
+        
+        <section class="item" class="main_text2">
+            <div class="fadeinleft">
+                <canvas width="1920" height="1080" id="js_main" class="main_bg"></canvas>
+                <canvas width="800" height="150" id="main_text" class="main_text"></canvas>
+            </div>
         </section>
+        
+         <section class="item">
+            <div id="container">
+                <div id="slider">
+                    <div class="page2">
+                        <img src="img/page2.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="item">
+            <div class="green"></div>
+            <div id="container">
+                <img src="img/page3.png" class="page3">
+            </div>
+            <video muted autoplay loop class="page3_video">
+              <source src="img/page3_viedo.mp4" type="video/mp4">
+                
+            </video>
+        </section>
+        
+        <section class="item">
+            <div class="box">
+                <img src="img/page4.jpg" class="page4">
+                <div id="container">
+                    <img src="img/page4_text.png" class="page4_text">
+                    <img src="img/page4_arrow.gif" class="page4_arrow">
+                </div>
+            </div>
+        </section>
+        
+        <section class="item">
+            <div id="container">
+                <div data-parallax='{"y":2400, "from-scroll":3900, "distance":2400, "smoothness":0}'>
+                    <canvas width="800" height="1000" id="page5" class="page5"></canvas>
+                </div>
+                
+                <div class="fadeinlefts">
+                    <div data-parallax='{"y":2400, "from-scroll":3900, "distance":2400, "smoothness":0}'>
+                        <img src="img/page5_text.png" class="page5_text" id="page5_text">
+                    </div>
+                </div>
+                
+                <div data-parallax='{"y":2400, "from-scroll":3900, "distance":2400, "smoothness":0}'>
+                        <img src="img/page5_maintext.png" class="page5_maintext">
+                </div>
+            </div>
+        </section>
+            
         
         <div id="container">
 
@@ -41,14 +142,6 @@
         <script src="script/jquery.parallax-scroll.js"></script>
         <script src="script/sequence.js"></script>
         <script src="script/scroll.js"></script>
+        <script src="opacity/scroll.js"></script>
     </body>
 </html>
-    
-    
-    
-    
-    
-    
-    
-    
-    
